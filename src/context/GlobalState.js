@@ -16,7 +16,19 @@ const initialState = {
   projects: [
     {
       title: 'JoinUS',
-      tech: ['React', 'Redux', 'Node.JS', 'Express.js'],
+      tech: ['HTML', 'CSS', 'SASS', 'JavaScript', 'React', 'Redux', 'Node.JS', 'Express.js', 'JWT', 'MongoDB'],
+      url: '',
+      github: '',
+    },
+
+    {
+      title: 'Rick & Morty - Space Invaders',
+      tech: ['HTML', 'CSS', 'React', 'Mobx', 'Node.JS', 'Express', 'Socket.io'],
+      url: '',
+      github: '',
+    },
+    {
+      title: 'imageSearch',
     },
   ],
 
@@ -32,5 +44,11 @@ export const GlobalContext = createContext(initialState);
 export const GlobalProvider = ({ children }) => {
   const [state, setState] = useReducer(AppReducer, initialState);
 
-  return <GlobalContext.Provider value={{ data: state }}>{children}</GlobalContext.Provider>;
+  const toggleProfileCard = (bool) => setState({ type: 'TOGGLE_PROFILE', payload: bool });
+
+  const toggleProjectsCard = (bool) => setState({ type: 'TOGGLE_PROJECTS', payload: bool });
+
+  return (
+    <GlobalContext.Provider value={{ state, toggleProfileCard, toggleProjectsCard }}>{children}</GlobalContext.Provider>
+  );
 };

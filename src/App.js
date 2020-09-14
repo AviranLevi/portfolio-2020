@@ -7,7 +7,7 @@ function App() {
     <div className='app center-items'>
       <div className='container center-items'>
         <Profile />
-        {/* <Projects /> */}
+        <Projects />
       </div>
     </div>
   );

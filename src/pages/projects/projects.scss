@@ -1,0 +1,115 @@
+.projects {
+  position: relative;
+  height: 0;
+  width: 80%;
+  transition: height 1s;
+
+  .open-card-btn {
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    border: 5px solid $white;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: 1s;
+    transform: translateY(0%);
+    cursor: pointer;
+    z-index: 10000;
+
+    &:hover {
+      margin-bottom: 10px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    }
+  }
+  .open-card-btn-expend {
+    transform: translateY(120%);
+    -webkit-box-shadow: 0px 0px 42px -9px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 42px -9px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 42px -9px rgba(0, 0, 0, 0.75);
+  }
+
+  .card {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    background: $white;
+    height: 0;
+    width: 0;
+    transition: 1s;
+    border-radius: 25px;
+    text-align: center;
+    grid-template-rows: 1fr 2fr;
+
+    .card-titles {
+      grid-gap: 20px;
+      opacity: 0;
+      transform: translateY(100%);
+
+      .card-title {
+        font-size: 30px;
+        color: $primary;
+      }
+    }
+    .expend-titles {
+      transition: 1s;
+      transition-delay: 0.6s;
+      visibility: visible;
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .card-projects {
+      margin-bottom: 100px;
+      grid-template-columns: repeat(3, 1fr);
+      visibility: hidden;
+      opacity: 0;
+      grid-gap: 10px;
+      transform: translateY(100%);
+      width: 80%;
+      height: 50%;
+
+      .project {
+        height: 80%;
+        width: 100%;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: 0.5s;
+        &:hover {
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.75), 0 6px 6px rgba(0, 0, 0, 0.75);
+        }
+      }
+
+      .project:first-of-type {
+        background: #101213;
+        font-family: 'Poppins', sans-serif;
+        color: #f5cb5c;
+      }
+
+      .project:nth-of-type(2) {
+        background: red;
+      }
+
+      .project:nth-of-type(3) {
+        color: white;
+        font-family: 'Lobster', cursive;
+        background: linear-gradient(to bottom, #4a00e0, #8e2de2);
+      }
+    }
+
+    .expend-card-projects {
+      transform: translateY(0%);
+      transition: 1s;
+      transition-delay: 0.8s;
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+  .expend-card {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.expend {
+  height: 500px !important;
+}
