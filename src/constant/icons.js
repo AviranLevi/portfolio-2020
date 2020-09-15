@@ -6,6 +6,10 @@ export const socialIcons = {
   instagram: <i className='fab fa-instagram'></i>,
 };
 
+export const featuresIcons = {
+  close: <i className='fas fa-times'></i>,
+};
+
 export const socialIconsBackgroundColors = {
   instagram: {
     background: 'linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d)',

@@ -17,18 +17,21 @@ const initialState = {
     {
       title: 'JoinUS',
       tech: ['HTML', 'CSS', 'SASS', 'JavaScript', 'React', 'Redux', 'Node.JS', 'Express.js', 'JWT', 'MongoDB'],
-      url: '',
-      github: '',
+      url: 'https://join-us-client.herokuapp.com/',
+      github: 'https://github.com/AviranLevi/join-us',
     },
 
     {
       title: 'Rick & Morty - Space Invaders',
       tech: ['HTML', 'CSS', 'React', 'Mobx', 'Node.JS', 'Express', 'Socket.io'],
-      url: '',
-      github: '',
+      url: 'https://rick-and-morty-space-game.herokuapp.com/',
+      github: 'https://github.com/tomeraitz/rick-morty-game',
     },
     {
       title: 'imageSearch',
+      tech: ['HTML', 'CSS', 'Angular8', 'RxJS'],
+      url: 'https://image--search.herokuapp.com/',
+      github: 'https://github.com/AviranLevi/imageSearch',
     },
   ],
 
@@ -36,6 +39,13 @@ const initialState = {
     openProfileCard: false,
     openProjectsCard: false,
     sendMessage: false,
+    openMessageToast: false,
+  },
+
+  messageForm: {
+    userName: '',
+    email: '',
+    message: '',
   },
 };
 
@@ -48,7 +58,11 @@ export const GlobalProvider = ({ children }) => {
 
   const toggleProjectsCard = (bool) => setState({ type: 'TOGGLE_PROJECTS', payload: bool });
 
+  const toggleMessageToast = (bool) => setState({ type: 'TOGGLE_MESSAGE_TOAST', payload: bool });
+
   return (
-    <GlobalContext.Provider value={{ state, toggleProfileCard, toggleProjectsCard }}>{children}</GlobalContext.Provider>
+    <GlobalContext.Provider value={{ state, toggleProfileCard, toggleProjectsCard, toggleMessageToast }}>
+      {children}
+    </GlobalContext.Provider>
   );
 };

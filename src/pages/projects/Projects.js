@@ -6,9 +6,9 @@ import Title from '../../components/title';
 const Projects = () => {
   const { state, toggleProjectsCard } = useContext(GlobalContext);
   const { projects, features } = state;
-  const { openProjectsCard } = features;
+  const { openProjectsCard, openMessageToast } = features;
   return (
-    <div className={`projects center-items ${openProjectsCard ? 'expend' : ''} `}>
+    <div className={`projects center-items ${openProjectsCard ? 'expend' : ''} ${openMessageToast ? 'active' : ''} `}>
       <div
         onClick={() => toggleProjectsCard(!openProjectsCard)}
         className={`open-card-btn ${openProjectsCard ? 'open-card-btn-expend' : ''}`}

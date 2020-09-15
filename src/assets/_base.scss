@@ -2,26 +2,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Lobster&display=swap');
 
-$primary: #004e92;
-$pink: #003049;
+$primary: #6944ff;
+$second: #ff2846;
 $white: #f7fff7;
+$font-color: black;
+$title-color: #0e71c8;
 
 a {
   text-decoration: none;
 }
 
+button {
+  outline: none;
+}
+
 .app {
   font-family: 'Quicksand', sans-serif;
   height: 100vh;
-  width: 100vw;
   font-weight: 500;
-  background: linear-gradient(43deg, $primary 0%, $pink 100%);
+  background-image: linear-gradient(-20deg, $second 0%, $primary 100%);
 
   .container {
     grid-template-columns: repeat(2, 1fr);
     height: 80%;
     width: 80%;
   }
+}
+
+.active {
+  pointer-events: none;
+  filter: blur(4px);
 }
 
 .center-items {

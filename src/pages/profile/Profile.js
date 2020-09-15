@@ -5,12 +5,12 @@ import Title from '../../components/title';
 import Button from '../../components/button/Button';
 
 const Profile = () => {
-  const { state, toggleProfileCard } = useContext(GlobalContext);
+  const { state, toggleProfileCard, toggleMessageToast } = useContext(GlobalContext);
   const { user, features } = state;
-  const { openProfileCard } = features;
-
+  const { openProfileCard, openMessageToast } = features;
+  console.log(state);
   return (
-    <div className={`profile center-items ${openProfileCard ? 'expend' : ''} `}>
+    <div className={`profile center-items ${openProfileCard ? 'expend' : ''} ${openMessageToast ? 'active' : ''} `}>
       <div
         onClick={() => toggleProfileCard(!openProfileCard)}
         className={`open-card-btn ${openProfileCard ? 'open-card-btn-expend' : ''}`}
@@ -37,7 +37,7 @@ const Profile = () => {
         </div>
 
         <div className={`card-btn ${openProfileCard ? 'expend-card-btn' : ''}`}>
-          <Button text='Lets talk!' />
+          <Button action={() => toggleMessageToast(true)} text='Lets talk!' />
         </div>
       </div>
     </div>

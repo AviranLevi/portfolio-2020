@@ -1,0 +1,56 @@
+.input-wrapper {
+  width: 100%;
+  .input-content {
+    position: relative;
+    height: 40px;
+    width: 100%;
+
+    input {
+      height: 100%;
+      width: 99%;
+      border: none;
+      font-size: 18px;
+      outline: none;
+      border-bottom: 2px solid $font-color;
+
+      &:focus ~ label,
+      &:valid ~ label:after {
+        transform: translateY(-20px);
+        font-size: 15px;
+        color: #d5135a;
+      }
+
+      &:focus ~ .underline:before,
+      &:valid ~ .underline:after {
+        transform: scaleX(1);
+      }
+    }
+
+    label {
+      position: absolute;
+      bottom: 10px;
+      left: 0;
+      color: $font-color;
+      pointer-events: none;
+      transition: all 0.5s ease;
+    }
+
+    .underline {
+      position: absolute;
+      height: 2px;
+      width: 100%;
+      bottom: -4px;
+
+      &:before {
+        position: absolute;
+        content: '';
+        height: 100%;
+        width: 100%;
+        background: #d5135a;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.5s ease;
+      }
+    }
+  }
+}
