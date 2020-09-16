@@ -18,6 +18,6 @@ export const socialIconsBackgroundColors = {
     background: 'linear-gradient(45deg, #333333, #626b73)',
   },
   linkedIn: {
-    background: 'linear-gradient(45deg, #3b5998, #0078d7)',
+    background: 'linear-gradient(45deg, #1769ff, #213fca)',
   },
 };
