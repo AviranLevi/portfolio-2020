@@ -1,6 +1,8 @@
 import React, { createContext, useReducer } from 'react';
 import AppReducer from './AppReducer';
+import * as actionType from './types';
 import { socialIcons, socialIconsBackgroundColors } from '../constant/icons';
+import techIcons from '../config/techIcons';
 
 const initialState = {
   user: {
@@ -8,28 +10,69 @@ const initialState = {
     location: 'Tel Aviv-Yafo, Israel',
     jobTitle: 'Full-stack Web Developer',
     socialLinks: [
-      { icon: socialIcons.github, name: 'github', url: '', style: socialIconsBackgroundColors.github },
+      {
+        icon: socialIcons.github,
+        name: 'github',
+        url: 'https://github.com/AviranLevi',
+        style: socialIconsBackgroundColors.github,
+      },
       { icon: socialIcons.instagram, name: 'instagram', url: '', style: socialIconsBackgroundColors.instagram },
-      { icon: socialIcons.linkedIn, name: 'linkedIn', url: '', style: socialIconsBackgroundColors.linkedIn },
+      {
+        icon: socialIcons.linkedIn,
+        name: 'linkedIn',
+        url: 'https://www.linkedin.com/in/aviran-levi-looking-for-my-next-challenge-29660911b/',
+        style: socialIconsBackgroundColors.linkedIn,
+      },
     ],
   },
   projects: [
     {
       title: 'JoinUS',
-      tech: ['HTML', 'CSS', 'SASS', 'JavaScript', 'React', 'Redux', 'Node.JS', 'Express.js', 'JWT', 'MongoDB'],
+      tech: [
+        techIcons.html,
+        techIcons.css,
+        techIcons.sass,
+        techIcons.javascript,
+        techIcons.react,
+        techIcons.redux,
+        techIcons.node,
+        techIcons.express,
+        techIcons.jwt,
+        techIcons.mongo,
+      ],
+      displayTech: false,
       url: 'https://join-us-client.herokuapp.com/',
       github: 'https://github.com/AviranLevi/join-us',
     },
 
     {
       title: 'Rick & Morty - Space Invaders',
-      tech: ['HTML', 'CSS', 'React', 'Mobx', 'Node.JS', 'Express', 'Socket.io'],
+      tech: [
+        techIcons.html,
+        techIcons.css,
+        techIcons.javascript,
+        techIcons.react,
+        techIcons.mobx,
+        techIcons.node,
+        techIcons.express,
+        techIcons.socket,
+      ],
+      displayTech: false,
       url: 'https://rick-and-morty-space-game.herokuapp.com/',
       github: 'https://github.com/tomeraitz/rick-morty-game',
     },
     {
       title: 'imageSearch',
-      tech: ['HTML', 'CSS', 'Angular8', 'RxJS'],
+      tech: [
+        techIcons.html,
+        techIcons.css,
+        techIcons.typescript,
+        techIcons.angular,
+        techIcons.rxjs,
+        techIcons.express,
+        techIcons.node,
+      ],
+      displayTech: false,
       url: 'https://image--search.herokuapp.com/',
       github: 'https://github.com/AviranLevi/imageSearch',
     },
@@ -54,14 +97,19 @@ export const GlobalContext = createContext(initialState);
 export const GlobalProvider = ({ children }) => {
   const [state, setState] = useReducer(AppReducer, initialState);
 
-  const toggleProfileCard = (bool) => setState({ type: 'TOGGLE_PROFILE', payload: bool });
+  const toggleProfileCard = (bool) => setState({ type: actionType.TOGGLE_PROFILE, payload: bool });
 
-  const toggleProjectsCard = (bool) => setState({ type: 'TOGGLE_PROJECTS', payload: bool });
+  const toggleProjectsCard = (bool) => setState({ type: actionType.TOGGLE_PROJECTS, payload: bool });
 
-  const toggleMessageToast = (bool) => setState({ type: 'TOGGLE_MESSAGE_TOAST', payload: bool });
+  const toggleMessageToast = (bool) => setState({ type: actionType.TOGGLE_MESSAGE_TOAST, payload: bool });
+
+  const displayProjectTech = (projectIndex, displayTech = false) =>
+    setState({ type: actionType.DISPLAY_TECH, payload: { projectIndex, displayTech } });
 
   return (
-    <GlobalContext.Provider value={{ state, toggleProfileCard, toggleProjectsCard, toggleMessageToast }}>
+    <GlobalContext.Provider
+      value={{ state, toggleProfileCard, toggleProjectsCard, toggleMessageToast, displayProjectTech }}
+    >
       {children}
     </GlobalContext.Provider>
   );

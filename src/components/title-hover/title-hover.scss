@@ -1,0 +1,13 @@
+.title-hover {
+  height: 100%;
+  display: grid;
+  justify-items: center;
+  opacity: 0;
+  transition: 1s;
+
+  .title-hover-text {
+    font-size: 10em;
+    opacity: 0.1;
+    margin-top: 5rem;
+  }
+}

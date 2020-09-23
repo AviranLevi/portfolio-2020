@@ -7,7 +7,7 @@
 
     input {
       height: 100%;
-      width: 99%;
+      width: 100%;
       border: none;
       font-size: 18px;
       outline: none;
@@ -38,7 +38,7 @@
     .underline {
       position: absolute;
       height: 2px;
-      width: 100%;
+      width: 102%;
       bottom: -4px;
 
       &:before {

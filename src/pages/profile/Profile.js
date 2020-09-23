@@ -7,10 +7,10 @@ import Button from '../../components/button/Button';
 const Profile = () => {
   const { state, toggleProfileCard, toggleMessageToast } = useContext(GlobalContext);
   const { user, features } = state;
-  const { openProfileCard, openMessageToast } = features;
-  console.log(state);
+  const { openProfileCard } = features;
+
   return (
-    <div className={`profile center-items ${openProfileCard ? 'expend' : ''} ${openMessageToast ? 'active' : ''} `}>
+    <div className={`profile center-items ${openProfileCard ? 'expend' : ''}`}>
       <div
         onClick={() => toggleProfileCard(!openProfileCard)}
         className={`open-card-btn ${openProfileCard ? 'open-card-btn-expend' : ''}`}
@@ -28,8 +28,15 @@ const Profile = () => {
 
         <div className={`cards-links center-items ${openProfileCard ? 'expend-card-links' : ''}`}>
           {user.socialLinks.length
-            ? user.socialLinks.map((link) => (
-                <a className='link center-items' href={link.url} style={link.style}>
+            ? user.socialLinks.map((link, index) => (
+                <a
+                  key={index + '-' + link}
+                  className='link center-items'
+                  href={link.url}
+                  style={link.style}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
                   {link.icon}
                 </a>
               ))

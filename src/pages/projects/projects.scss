@@ -25,7 +25,7 @@
   }
 
   .open-card-btn-expend {
-    transform: translateY(120%);
+    transform: translateY(135%);
     -webkit-box-shadow: 0px 0px 42px -9px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 0px 0px 42px -9px rgba(0, 0, 0, 0.75);
     box-shadow: 0px 0px 42px -9px rgba(0, 0, 0, 0.75);
@@ -39,18 +39,21 @@
     transition: 1s;
     border-radius: 25px;
     text-align: center;
-    grid-template-rows: 1fr 2fr;
+    grid-template-rows: repeat(auto-fill, minmax(10rem, 1fr));
+    padding-bottom: 3em;
 
     .card-titles {
+      margin-top: 3em;
       grid-gap: 20px;
       opacity: 0;
       transform: translateY(100%);
 
       .card-title {
-        font-size: 30px;
+        font-size: 3em;
         color: $primary;
       }
     }
+
     .expend-titles {
       transition: 1s;
       transition-delay: 0.6s;
@@ -60,31 +63,28 @@
     }
 
     .card-projects {
-      margin-bottom: 100px;
       grid-template-columns: repeat(3, 1fr);
       visibility: hidden;
       opacity: 0;
       grid-gap: 10px;
       transform: translateY(100%);
       width: 80%;
-      height: 50%;
+      height: 80%;
 
       .project {
-        height: 60%;
+        height: 70%;
         width: 100%;
         border-radius: 25px;
         cursor: pointer;
-        transition: 0.5s;
-
-        &:hover {
-          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.45), 0 6px 6px rgba(0, 0, 0, 0.45);
-        }
+        transition: 1s;
       }
 
       .project:first-of-type {
         background: #101213;
         font-family: 'Poppins', sans-serif;
-        color: #f5cb5c;
+        a {
+          color: #f5cb5c;
+        }
       }
 
       .project:nth-of-type(2) {
@@ -98,9 +98,11 @@
       }
 
       .project:nth-of-type(3) {
-        color: white;
         font-family: 'Lobster', cursive;
         background: linear-gradient(to bottom, #4a00e0, #8e2de2);
+        a {
+          color: white;
+        }
       }
     }
 
@@ -111,7 +113,21 @@
       visibility: visible;
       opacity: 1;
     }
+
+    .card-projects-tech {
+      margin-bottom: 5em;
+      width: 80%;
+      grid-template-columns: repeat(auto-fill, minmax(5rem, 1fr));
+
+      .tech-icon {
+        img {
+          max-width: 70px;
+          max-height: 70px;
+        }
+      }
+    }
   }
+
   .expend-card {
     width: 100%;
     height: 100%;
