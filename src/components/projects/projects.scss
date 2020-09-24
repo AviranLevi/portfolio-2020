@@ -82,9 +82,7 @@
       .project:first-of-type {
         background: #101213;
         font-family: 'Poppins', sans-serif;
-        a {
-          color: #f5cb5c;
-        }
+        color: #f5cb5c;
       }
 
       .project:nth-of-type(2) {
@@ -100,9 +98,7 @@
       .project:nth-of-type(3) {
         font-family: 'Lobster', cursive;
         background: linear-gradient(to bottom, #4a00e0, #8e2de2);
-        a {
-          color: white;
-        }
+        color: white;
       }
     }
 

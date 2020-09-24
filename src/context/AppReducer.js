@@ -20,6 +20,12 @@ export default (state, action) => {
         ),
       };
 
+    case actionType.THANKS_TOAST:
+      return {
+        ...state,
+        features: { ...state.features, thanksToast: action.payload },
+      };
+
     default:
       return state;
   }

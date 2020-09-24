@@ -83,6 +83,7 @@ const initialState = {
     openProjectsCard: false,
     sendMessage: false,
     openMessageToast: false,
+    thanksToast: false,
   },
 
   messageForm: {
@@ -106,9 +107,23 @@ export const GlobalProvider = ({ children }) => {
   const displayProjectTech = (projectIndex, displayTech = false) =>
     setState({ type: actionType.DISPLAY_TECH, payload: { projectIndex, displayTech } });
 
+  const toggleThanksToast = (bool) => {
+    setState({ type: actionType.THANKS_TOAST, payload: bool });
+    if (bool) {
+      setTimeout(() => setState({ type: actionType.THANKS_TOAST, payload: false }), 3000);
+    }
+  };
+
   return (
     <GlobalContext.Provider
-      value={{ state, toggleProfileCard, toggleProjectsCard, toggleMessageToast, displayProjectTech }}
+      value={{
+        state,
+        toggleProfileCard,
+        toggleProjectsCard,
+        toggleMessageToast,
+        displayProjectTech,
+        toggleThanksToast,
+      }}
     >
       {children}
     </GlobalContext.Provider>

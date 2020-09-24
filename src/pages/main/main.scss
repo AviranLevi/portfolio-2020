@@ -1,0 +1,43 @@
+.main {
+  grid-template-columns: repeat(2, 1fr);
+  height: 80%;
+  width: 80%;
+
+  .profile-wrapper {
+    width: 100%;
+
+    &:hover .left {
+      opacity: 1;
+    }
+
+    .profile-hover-left {
+      position: absolute;
+      width: 50%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      margin-left: 1em;
+      display: grid;
+      justify-items: center;
+    }
+  }
+
+  .projects-wrapper {
+    width: 100%;
+
+    &:hover .right {
+      opacity: 1;
+    }
+
+    .projects-hover-right {
+      position: absolute;
+      width: 50%;
+      height: 100%;
+      bottom: 0;
+      right: 0;
+      margin-right: 11em;
+      display: grid;
+      justify-items: center;
+    }
+  }
+}

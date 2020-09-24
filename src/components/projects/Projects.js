@@ -7,6 +7,7 @@ const Projects = () => {
   const { state, toggleProjectsCard, displayProjectTech } = useContext(GlobalContext);
   const { projects, features } = state;
   const { openProjectsCard } = features;
+
   return (
     <div className={`projects center-items ${openProjectsCard ? 'expend' : ''}  `}>
       <div
@@ -22,16 +23,17 @@ const Projects = () => {
 
         <div className={`card-projects center-items ${openProjectsCard ? 'expend-card-projects' : ''}`}>
           {projects.map((project, index) => (
-            <div
+            <a
               onMouseOver={() => displayProjectTech(index, true)}
               onMouseLeave={() => displayProjectTech(index, false)}
               key={project.title + '-' + index}
               className='project center-items'
+              href={project.url}
+              target='_blank'
+              rel='noopener noreferrer'
             >
-              <a href={project.url}>
-                <Title text={project.title} />
-              </a>
-            </div>
+              <Title text={project.title} />
+            </a>
           ))}
         </div>
 

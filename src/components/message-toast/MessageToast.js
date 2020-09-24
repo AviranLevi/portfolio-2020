@@ -1,12 +1,12 @@
 import React, { useContext, useState } from 'react';
-import Button from '../../components/button/Button';
-import Title from '../../components/title';
-import Input from '../../components/input/Input';
+import Button from '../button/Button';
+import Title from '../title';
+import Input from '../input/Input';
 import { featuresIcons } from '../../constant/icons';
 import { GlobalContext } from '../../context/GlobalState';
 
 const MessageToast = () => {
-  const { toggleMessageToast } = useContext(GlobalContext);
+  const { toggleMessageToast, toggleThanksToast } = useContext(GlobalContext);
   const [state, setState] = useState({
     name: '',
     email: '',
@@ -26,11 +26,13 @@ const MessageToast = () => {
         <div onClick={() => toggleMessageToast(false)} className='close-toast'>
           {featuresIcons.close}
         </div>
+
         <Title className='message-title' text='Contact' />
         <div className='massager-info center-items'>
           <Input onChange={handleOnChange} name='name' title='Name' value={name} />
           <Input onChange={handleOnChange} name='email' title='Email' value={email} />
         </div>
+
         <textarea
           onChange={handleOnChange}
           className='message'
@@ -39,8 +41,9 @@ const MessageToast = () => {
           value={message}
           placeholder='Message...'
         ></textarea>
+
         <div className='message-btns'>
-          <Button text='Send' className='send-btn' />
+          <Button action={() => toggleThanksToast(true)} text='Send' className='send-btn' />
         </div>
       </div>
     </form>
