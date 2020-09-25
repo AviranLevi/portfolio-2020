@@ -84,12 +84,11 @@ const initialState = {
     sendMessage: false,
     openMessageToast: false,
     thanksToast: false,
+    isLoading: false,
   },
 
-  messageForm: {
-    userName: '',
-    email: '',
-    message: '',
+  errors: {
+    messageError: false,
   },
 };
 
@@ -107,12 +106,32 @@ export const GlobalProvider = ({ children }) => {
   const displayProjectTech = (projectIndex, displayTech = false) =>
     setState({ type: actionType.DISPLAY_TECH, payload: { projectIndex, displayTech } });
 
+  //TODO: api req + input validations
+  const sendMessage = ({ name, email, message }) => {
+    isLoading(true);
+    toggleMessageToast(false);
+
+    if (name && email && message) {
+      console.log({ name, email, message });
+      isLoading(false);
+      toggleThanksToast(true);
+    } else {
+      isLoading(false);
+      isMessageError(true);
+      console.log('something went wrong');
+    }
+  };
+
   const toggleThanksToast = (bool) => {
     setState({ type: actionType.THANKS_TOAST, payload: bool });
     if (bool) {
       setTimeout(() => setState({ type: actionType.THANKS_TOAST, payload: false }), 3000);
     }
   };
+
+  const isLoading = (bool) => setState({ type: actionType.IS_LOADING, payload: bool });
+
+  const isMessageError = (bool) => setState({ type: actionType.MESSAGE_ERROR, payload: bool });
 
   return (
     <GlobalContext.Provider
@@ -123,6 +142,8 @@ export const GlobalProvider = ({ children }) => {
         toggleMessageToast,
         displayProjectTech,
         toggleThanksToast,
+        isLoading,
+        sendMessage,
       }}
     >
       {children}

@@ -26,6 +26,18 @@ export default (state, action) => {
         features: { ...state.features, thanksToast: action.payload },
       };
 
+    case actionType.IS_LOADING:
+      return {
+        ...state,
+        features: { ...state.features, isLoading: action.payload },
+      };
+
+    case actionType.MESSAGE_ERROR:
+      return {
+        ...state,
+        errors: { ...state.errors, messageError: action.payload },
+      };
+
     default:
       return state;
   }

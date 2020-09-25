@@ -6,7 +6,7 @@ import { featuresIcons } from '../../constant/icons';
 import { GlobalContext } from '../../context/GlobalState';
 
 const MessageToast = () => {
-  const { toggleMessageToast, toggleThanksToast } = useContext(GlobalContext);
+  const { toggleMessageToast, sendMessage } = useContext(GlobalContext);
   const [state, setState] = useState({
     name: '',
     email: '',
@@ -43,7 +43,7 @@ const MessageToast = () => {
         ></textarea>
 
         <div className='message-btns'>
-          <Button action={() => toggleThanksToast(true)} text='Send' className='send-btn' />
+          <Button action={() => sendMessage({ ...state })} text='Send' className='send-btn' />
         </div>
       </div>
     </form>
