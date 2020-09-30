@@ -10,7 +10,7 @@ const MessageToast = () => {
   const [state, setState] = useState({
     name: '',
     email: '',
-    message: '',
+    text: '',
     maxLength: 300,
   });
 
@@ -20,7 +20,7 @@ const MessageToast = () => {
     setState({ ...state, [name]: value });
   };
 
-  const { name, email, message, maxLength } = state;
+  const { name, email, text, maxLength } = state;
   return (
     <form className='fade-in message-toast center-items'>
       <div className='message-toast-wrapper center-items'>
@@ -38,13 +38,13 @@ const MessageToast = () => {
           <textarea
             onChange={handleOnChange}
             maxLength={maxLength}
-            name='message'
-            value={message}
+            name='text'
+            value={text}
             placeholder='Message...'
           ></textarea>
 
-          <span style={message.length === maxLength ? { color: 'red' } : {}}>
-            {message.length} / {maxLength}
+          <span style={text.length === maxLength ? { color: 'red' } : {}}>
+            {text.length} / {maxLength}
           </span>
         </div>
 

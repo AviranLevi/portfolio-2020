@@ -108,20 +108,16 @@ export const GlobalProvider = ({ children }) => {
     setState({ type: actionType.DISPLAY_TECH, payload: { projectIndex, displayTech } });
 
   //TODO: api req + input validations
-  const sendMessage = ({ name, email, message }) => {
+  const sendMessage = ({ name, email, text }) => {
     isLoading(true);
     toggleMessageToast(false);
-    api.sendEmail();
-    // if (name && email && message) {
-    //   console.log({ name, email, message });
-
-    //   isLoading(false);
-    //   toggleThanksToast(true);
-    // } else {
-    //   isLoading(false);
-    //   isMessageError(true);
-    //   console.log('something went wrong');
-    // }
+    const success = api.sendEmail({ name, email, text });
+    if (success) {
+      console.log('we did it');
+      isLoading(false);
+    } else {
+      console.log('nope');
+    }
   };
 
   const toggleThanksToast = (bool) => {

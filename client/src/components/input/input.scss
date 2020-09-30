@@ -5,6 +5,15 @@
     height: 40px;
     width: 100%;
 
+    label {
+      position: absolute;
+      top: 12px;
+      left: 0;
+      color: $font-color;
+      pointer-events: none;
+      transition: all 0.5s ease-in-out;
+    }
+
     input {
       height: 100%;
       width: 100%;
@@ -14,7 +23,7 @@
       border-bottom: 2px solid $font-color;
 
       &:focus ~ label,
-      &:valid ~ label:after {
+      &:valid ~ label {
         transform: translateY(-20px);
         font-size: 15px;
         color: #d5135a;
@@ -24,15 +33,6 @@
       &:valid ~ .underline:after {
         transform: scaleX(1);
       }
-    }
-
-    label {
-      position: absolute;
-      bottom: 10px;
-      left: 0;
-      color: $font-color;
-      pointer-events: none;
-      transition: all 0.5s ease;
     }
 
     .underline {
