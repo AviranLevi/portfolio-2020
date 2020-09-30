@@ -1,5 +1,6 @@
 .input-wrapper {
-  width: 100%;
+  width: 70%;
+
   .input-content {
     position: relative;
     height: 40px;
@@ -51,6 +52,14 @@
         transform-origin: left;
         transition: transform 0.5s ease;
       }
+    }
+
+    .input-error {
+      position: relative;
+      color: red;
+      font-size: 15px;
+      font-weight: 400;
+      top: 0.5rem;
     }
   }
 }

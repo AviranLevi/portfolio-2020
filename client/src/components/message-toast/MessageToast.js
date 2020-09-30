@@ -6,8 +6,8 @@ import { featuresIcons } from '../../constant/icons';
 import { GlobalContext } from '../../context/GlobalState';
 
 const MessageToast = () => {
-  const { toggleMessageToast, sendMessage } = useContext(GlobalContext);
-  const [state, setState] = useState({
+  const { state, toggleMessageToast, sendMessage } = useContext(GlobalContext);
+  const [user, setUser] = useState({
     name: '',
     email: '',
     text: '',
@@ -17,21 +17,22 @@ const MessageToast = () => {
   const handleOnChange = (e) => {
     const value = e.target.value;
     const name = e.target.name;
-    setState({ ...state, [name]: value });
+    setUser({ ...user, [name]: value });
   };
 
-  const { name, email, text, maxLength } = state;
+  const { name, email, text, maxLength } = user;
+  const { nameError, emailError, textError } = state.errors;
   return (
-    <form className='fade-in message-toast center-items'>
+    <div className='fade-in message-toast center-items'>
       <div className='message-toast-wrapper center-items'>
         <div onClick={() => toggleMessageToast(false)} className='close-toast'>
           {featuresIcons.close}
         </div>
 
         <Title className='message-title' text='Contact' />
-        <div className='massager-info center-items'>
-          <Input onChange={handleOnChange} name='name' title='Name' value={name} />
-          <Input onChange={handleOnChange} name='email' title='Email' value={email} />
+        <div className='massage-user-info center-items'>
+          <Input onChange={handleOnChange} name='name' title='Name' value={name} error={nameError} />
+          <Input onChange={handleOnChange} name='email' title='Email' value={email} error={emailError} />
         </div>
 
         <div className='message-wrapper center-items'>
@@ -43,16 +44,19 @@ const MessageToast = () => {
             placeholder='Message...'
           ></textarea>
 
-          <span style={text.length === maxLength ? { color: 'red' } : {}}>
-            {text.length} / {maxLength}
-          </span>
+          <div className='text-info center-items'>
+            {textError ? <span className='text-error'>*Message is required...</span> : null}
+            <span className='char-length' style={text.length === maxLength ? { color: 'red' } : {}}>
+              {text.length} / {maxLength}
+            </span>
+          </div>
         </div>
 
         <div className='message-btns'>
-          <Button action={() => sendMessage({ ...state })} text='Send' className='send-btn' />
+          <Button action={() => sendMessage({ ...user })} text='Send' className='send-btn' />
         </div>
       </div>
-    </form>
+    </div>
   );
 };
 

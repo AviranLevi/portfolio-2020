@@ -5,9 +5,7 @@ const api = axios.create({
 });
 
 export const sendEmail = async (userInfo = {}) => {
-  console.log(userInfo);
   const response = await api.post('/send', userInfo);
   const { data } = response;
-  const { success } = data;
-  return success;
+  return data;
 };

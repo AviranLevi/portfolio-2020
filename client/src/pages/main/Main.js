@@ -7,17 +7,17 @@ import TitleHover from '../../components/title-hover';
 const Main = () => {
   const { state } = useContext(GlobalContext);
   const { features } = state;
-  const { openMessageToast, openProfileCard, openProjectsCard } = features;
+  const { openMessageToast, openProfileCard, openProjectsCard, isLoading } = features;
   return (
     <div className='main center-items'>
-      <div className={`profile-wrapper ${openMessageToast ? 'active' : ''}`}>
+      <div className={`profile-wrapper ${openMessageToast || isLoading ? 'active' : ''}`}>
         <div className='profile-hover-left'>
           <TitleHover text='Contact' side='left' dispaly={!openProfileCard} />
         </div>
         <Profile />
       </div>
 
-      <div className={`projects-wrapper ${openMessageToast ? 'active' : ''}`}>
+      <div className={`projects-wrapper ${openMessageToast || isLoading ? 'active' : ''}`}>
         <div className='projects-hover-right'>
           <TitleHover text='Projects' side='right' dispaly={!openProjectsCard} />
         </div>

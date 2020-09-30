@@ -38,6 +38,23 @@ export default (state, action) => {
         errors: { ...state.errors, messageError: action.payload },
       };
 
+    case actionType.FORM_NAME_ERROR:
+      return {
+        ...state,
+        errors: { ...state.errors, nameError: action.payload },
+      };
+    case actionType.FORM_EMAIL_ERROR:
+      return {
+        ...state,
+        errors: { ...state.errors, emailError: action.payload },
+      };
+
+    case actionType.FORM_TEXT_ERROR:
+      return {
+        ...state,
+        errors: { ...state.errors, textError: action.payload },
+      };
+
     default:
       return state;
   }

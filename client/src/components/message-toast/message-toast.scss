@@ -33,21 +33,21 @@
       color: #f05924;
     }
 
-    .massager-info {
+    .massage-user-info {
       grid-template-columns: repeat(2, 1fr);
       grid-gap: 50px;
+      width: 98%;
     }
 
     .message-wrapper {
-      width: 80%;
+      width: 100%;
       height: 100%;
-      grid-gap: 1em;
 
       textarea {
         font-weight: 500;
         border: 2px solid $font-color;
-        width: 100%;
-        height: 100%;
+        width: 80%;
+        height: 7rem;
         border-radius: 10px;
         resize: none;
         font-size: 18px;
@@ -59,8 +59,20 @@
         }
       }
 
-      span {
-        justify-self: end;
+      .text-info {
+        width: 85%;
+        height: 100%;
+        grid-template-columns: repeat(2, 1fr);
+
+        .text-error {
+          justify-self: start;
+          color: red;
+        }
+
+        .char-length {
+          justify-self: end;
+          grid-column: 2/3;
+        }
       }
     }
 

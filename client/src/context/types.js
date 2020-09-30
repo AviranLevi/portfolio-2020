@@ -7,3 +7,7 @@ export const IS_LOADING = 'IS_LOADING';
 export const SEND_MESSAGE = 'SEND_MESSAGE';
 
 export const MESSAGE_ERROR = 'MESSAGE_ERROR';
+export const FORM_NAME_ERROR = 'FORM_NAME_ERROR';
+export const FORM_EMAIL_ERROR = 'FORM_EMAIL_ERROR';
+export const FORM_TEXT_ERROR = 'FORM_TEXT_ERROR';
+export const ERROR_TOAST = 'ERROR_TOAST';

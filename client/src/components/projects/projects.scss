@@ -1,8 +1,7 @@
 .projects {
   position: relative;
-  height: 0;
-  width: 80%;
   transition: height 1s;
+  margin: 0 10%;
 
   .open-card-btn {
     position: absolute;
