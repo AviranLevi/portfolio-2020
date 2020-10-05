@@ -37,12 +37,12 @@ const Projects = () => {
           ))}
         </div>
 
-        <div className='card-projects-tech center-items'>
+        <div className={`card-projects-tech center-items ${openProjectsCard ? 'card-projects-tech-expend' : ''}`}>
           {projects.map((project) =>
             project.displayTech
               ? project.tech.map((tech, index) => (
                   <div className={`tech-icon fade-in`}>
-                    <img src={tech} alt={project.title + '-' + index} />
+                    <img src={tech} alt={tech + '-' + index} />
                   </div>
                 ))
               : null

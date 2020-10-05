@@ -1,85 +1,14 @@
 import React, { createContext, useReducer } from 'react';
 import validator from 'validator';
 import AppReducer from './AppReducer';
+import projects from '../constant/projects';
+import profile from '../constant/profile';
 import * as actionType from './types';
-import { socialIcons, socialIconsBackgroundColors } from '../constant/icons';
-import techIcons from '../config/techIcons';
 import * as api from '../api';
 
 const initialState = {
-  user: {
-    name: 'Aviran Levi',
-    location: 'Tel Aviv-Yafo, Israel',
-    jobTitle: 'Full-stack Web Developer',
-    socialLinks: [
-      {
-        icon: socialIcons.github,
-        name: 'github',
-        url: 'https://github.com/AviranLevi',
-        style: socialIconsBackgroundColors.github,
-      },
-      { icon: socialIcons.instagram, name: 'instagram', url: '', style: socialIconsBackgroundColors.instagram },
-      {
-        icon: socialIcons.linkedIn,
-        name: 'linkedIn',
-        url: 'https://www.linkedin.com/in/aviran-levi-looking-for-my-next-challenge-29660911b/',
-        style: socialIconsBackgroundColors.linkedIn,
-      },
-    ],
-  },
-  projects: [
-    {
-      title: 'JoinUS',
-      tech: [
-        techIcons.html,
-        techIcons.css,
-        techIcons.sass,
-        techIcons.javascript,
-        techIcons.react,
-        techIcons.redux,
-        techIcons.node,
-        techIcons.express,
-        techIcons.jwt,
-        techIcons.mongo,
-      ],
-      displayTech: false,
-      url: 'https://join-us-client.herokuapp.com/',
-      github: 'https://github.com/AviranLevi/join-us',
-    },
-
-    {
-      title: 'Rick & Morty - Space Invaders',
-      tech: [
-        techIcons.html,
-        techIcons.css,
-        techIcons.javascript,
-        techIcons.react,
-        techIcons.mobx,
-        techIcons.node,
-        techIcons.express,
-        techIcons.socket,
-      ],
-      displayTech: false,
-      url: 'https://rick-and-morty-space-game.herokuapp.com/',
-      github: 'https://github.com/tomeraitz/rick-morty-game',
-    },
-    {
-      title: 'imageSearch',
-      tech: [
-        techIcons.html,
-        techIcons.css,
-        techIcons.typescript,
-        techIcons.angular,
-        techIcons.rxjs,
-        techIcons.express,
-        techIcons.node,
-      ],
-      displayTech: false,
-      url: 'https://image--search.herokuapp.com/',
-      github: 'https://github.com/AviranLevi/imageSearch',
-    },
-  ],
-
+  profile,
+  projects,
   features: {
     openProfileCard: false,
     openProjectsCard: false,

@@ -3,10 +3,11 @@ import { GlobalContext } from '../../context/GlobalState';
 import ProfilePic from '../../assets/images/ELD06141.jpg';
 import Title from '../../components/title';
 import Button from '../../components/button/Button';
+import { featuresIcons } from '../../constant/icons';
 
 const Profile = () => {
   const { state, toggleProfileCard, toggleMessageToast } = useContext(GlobalContext);
-  const { user, features } = state;
+  const { profile, features } = state;
   const { openProfileCard } = features;
 
   return (
@@ -18,17 +19,21 @@ const Profile = () => {
       ></div>
 
       <div className={`card center-items ${openProfileCard ? 'expend-card' : ''} `}>
+        <div onClick={() => toggleProfileCard(false)} className='close-card'>
+          {featuresIcons.close}
+        </div>
+
         <div className={`card-titles center-items ${openProfileCard ? 'expend-titles' : ''}`}>
-          <Title className='card-title' text={user.name} />
+          <Title className='card-title' text={profile.name} />
 
           <h3 className='card-job-title'>
-            {user.jobTitle} from <span>{user.location}</span>
+            {profile.jobTitle} from <span>{profile.location}</span>
           </h3>
         </div>
 
         <div className={`cards-links center-items ${openProfileCard ? 'expend-card-links' : ''}`}>
-          {user.socialLinks.length
-            ? user.socialLinks.map((link, index) => (
+          {profile.socialLinks.length
+            ? profile.socialLinks.map((link, index) => (
                 <a
                   key={index + '-' + link}
                   className='link center-items'

@@ -9,5 +9,17 @@
     font-size: 10em;
     opacity: 0.1;
     margin-top: 5rem;
+
+    @include lg {
+      font-size: 8em;
+    }
+
+    @include md {
+      font-size: 7em;
+    }
+  }
+
+  @include sm {
+    display: none;
   }
 }

@@ -1,7 +1,6 @@
 .projects {
   position: relative;
   transition: height 1s;
-  margin: 0 10%;
 
   .open-card-btn {
     position: absolute;
@@ -13,7 +12,6 @@
     background-repeat: no-repeat;
     background-size: cover;
     transition: 1s;
-    transform: translateY(0%);
     cursor: pointer;
     z-index: 10;
 
@@ -25,9 +23,15 @@
 
   .open-card-btn-expend {
     transform: translateY(135%);
-    -webkit-box-shadow: 0px 0px 42px -9px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 0px 0px 42px -9px rgba(0, 0, 0, 0.75);
     box-shadow: 0px 0px 42px -9px rgba(0, 0, 0, 0.75);
+
+    @include lg {
+      transform: translateY(130%);
+    }
+
+    @include sm {
+      transform: translateY(100%);
+    }
   }
 
   .card {
@@ -38,17 +42,16 @@
     transition: 1s;
     border-radius: 25px;
     text-align: center;
-    grid-template-rows: repeat(auto-fill, minmax(10rem, 1fr));
-    padding-bottom: 3em;
+    grid-template-rows: 1fr 3fr 3fr;
+    padding: 2em;
 
     .card-titles {
-      margin-top: 3em;
       grid-gap: 20px;
       opacity: 0;
       transform: translateY(100%);
 
       .card-title {
-        font-size: 3em;
+        font-size: 2.3em;
         color: $primary;
       }
     }
@@ -65,13 +68,13 @@
       grid-template-columns: repeat(3, 1fr);
       visibility: hidden;
       opacity: 0;
-      grid-gap: 10px;
+      grid-gap: 1em;
       transform: translateY(100%);
-      width: 80%;
-      height: 80%;
+      width: 100%;
+      height: 100%;
 
       .project {
-        height: 70%;
+        height: 50%;
         width: 100%;
         border-radius: 25px;
         cursor: pointer;
@@ -102,24 +105,37 @@
     }
 
     .expend-card-projects {
-      transform: translateY(0%);
       transition: 1s;
-      transition-delay: 0.8s;
+      transition-delay: 0.6s;
       visibility: visible;
+      transform: translateY(0);
       opacity: 1;
     }
 
     .card-projects-tech {
-      margin-bottom: 5em;
-      width: 80%;
-      grid-template-columns: repeat(auto-fill, minmax(5rem, 1fr));
+      width: 100%;
+      visibility: hidden;
+      grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
+      transform: translateY(100%);
+      align-self: start;
 
       .tech-icon {
         img {
           max-width: 70px;
           max-height: 70px;
+
+          @include md {
+            max-width: 60px;
+            max-height: 60px;
+          }
         }
       }
+    }
+
+    .card-projects-tech-expend {
+      visibility: visible;
+      transition-delay: 1s;
+      transform: translateY(0);
     }
   }
 
@@ -127,8 +143,4 @@
     width: 100%;
     height: 100%;
   }
-}
-
-.expend {
-  height: 500px !important;
 }

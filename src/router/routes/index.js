@@ -17,7 +17,7 @@ export const sendEmail = async (req, res, next) => {
         console.log('****error****', error);
         res.json({ success: false, error });
       } else {
-        res.json({ success: true });
+        res.json({ success: true, message: 'Email sent!' });
       }
     });
   } catch (error) {
