@@ -16,6 +16,7 @@ const initialState = {
     openMessageToast: false,
     thanksToast: false,
     isLoading: false,
+    noTechToDisplay: true,
   },
 
   errors: {
@@ -38,8 +39,15 @@ export const GlobalProvider = ({ children }) => {
 
   const toggleMessageToast = (bool) => setState({ type: actionType.TOGGLE_MESSAGE_TOAST, payload: bool });
 
-  const displayProjectTech = (projectIndex, displayTech = false) =>
+  const displayProjectTech = (projectIndex, displayTech = false) => {
     setState({ type: actionType.DISPLAY_TECH, payload: { projectIndex, displayTech } });
+
+    if (displayTech) {
+      setState({ type: actionType.NO_TECH_TO_DISPLAY, payload: false });
+    } else {
+      setState({ type: actionType.NO_TECH_TO_DISPLAY, payload: true });
+    }
+  };
 
   const sendMessage = async ({ name = '', email = '', text = '' }) => {
     const nameIsValid = name.length > 0;

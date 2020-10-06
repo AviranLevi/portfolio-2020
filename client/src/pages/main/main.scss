@@ -10,6 +10,7 @@
 
   @include sm {
     grid-template-columns: unset;
+    grid-template-rows: 50% 50%;
   }
 
   .profile-wrapper {
@@ -70,6 +71,11 @@
 
   @include sm {
     height: 300px !important;
-    width: 50%;
+    width: 70% !important;
+  }
+
+  @include xs {
+    height: 70% !important;
+    // width: 100% !important;
   }
 }

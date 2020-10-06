@@ -2,11 +2,12 @@ import React, { useContext } from 'react';
 import { GlobalContext } from '../../context/GlobalState';
 import ProfilePic from '../../assets/images/projects.jpg';
 import Title from '../../components/title';
+import { featuresIcons } from '../../constant/icons';
 
 const Projects = () => {
   const { state, toggleProjectsCard, displayProjectTech } = useContext(GlobalContext);
   const { projects, features } = state;
-  const { openProjectsCard } = features;
+  const { openProjectsCard, noTechToDisplay } = features;
 
   return (
     <div className={`projects center-items ${openProjectsCard ? 'expend' : ''}  `}>
@@ -17,6 +18,13 @@ const Projects = () => {
       ></div>
 
       <div className={`card center-items ${openProjectsCard ? 'expend-card' : ''} `}>
+        <div
+          onClick={() => toggleProjectsCard(false)}
+          className={`close-card ${openProjectsCard ? 'close-card-expend' : ''}`}
+        >
+          {featuresIcons.close}
+        </div>
+
         <div className={`card-titles center-items ${openProjectsCard ? 'expend-titles' : ''}`}>
           <Title className='card-title' text='My Projects' />
         </div>
@@ -47,6 +55,12 @@ const Projects = () => {
                 ))
               : null
           )}
+          {noTechToDisplay ? (
+            <Title
+              className={`hover-for-tech-title ${openProjectsCard ? `hover-for-tech-title-expend` : null}`}
+              text='Hover for technologies...'
+            />
+          ) : null}
         </div>
       </div>
     </div>

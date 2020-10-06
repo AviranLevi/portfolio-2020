@@ -20,6 +20,12 @@ export default (state, action) => {
         ),
       };
 
+    case actionType.NO_TECH_TO_DISPLAY:
+      return {
+        ...state,
+        features: { ...state.features, noTechToDisplay: action.payload },
+      };
+
     case actionType.THANKS_TOAST:
       return {
         ...state,

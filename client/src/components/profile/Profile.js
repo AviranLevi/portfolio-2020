@@ -19,7 +19,10 @@ const Profile = () => {
       ></div>
 
       <div className={`card center-items ${openProfileCard ? 'expend-card' : ''} `}>
-        <div onClick={() => toggleProfileCard(false)} className='close-card'>
+        <div
+          onClick={() => toggleProfileCard(false)}
+          className={`close-card ${openProfileCard ? 'close-card-expend' : ''}`}
+        >
           {featuresIcons.close}
         </div>
 
