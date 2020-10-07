@@ -51,6 +51,10 @@
       opacity: 0;
       transform: translateY(100%);
 
+      @include lg {
+        margin-top: 2.5em;
+      }
+
       @include sm {
         margin-top: 0;
       }
@@ -84,6 +88,14 @@
       opacity: 0;
       transform: translateY(100%);
 
+      @include md {
+        width: 80%;
+      }
+
+      @include xs {
+        width: 90%;
+      }
+
       .link {
         height: 50px;
         width: 50px;
@@ -101,10 +113,6 @@
         i {
           color: $white;
         }
-      }
-
-      @include xs {
-        width: 90%;
       }
     }
 

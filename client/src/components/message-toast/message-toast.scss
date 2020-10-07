@@ -14,6 +14,17 @@
     width: 600px;
     grid-gap: 1em;
     border-radius: 25px;
+    padding: 1em 0;
+
+    @include sm {
+      height: 450px;
+      width: 70vw;
+    }
+
+    @include xs {
+      height: 400px;
+      width: 90vw;
+    }
 
     .close-toast {
       position: absolute;
