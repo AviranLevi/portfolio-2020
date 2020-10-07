@@ -1,6 +1,6 @@
 .projects {
   position: relative;
-  transition: height 1s;
+  transition: 1s;
   height: 100%;
 
   .open-card-btn {
@@ -46,30 +46,6 @@
 
     @include sm {
       grid-template-rows: 1fr 3fr;
-    }
-
-    .close-card {
-      display: none;
-      position: absolute;
-      top: 1.5em;
-      right: 2em;
-      cursor: pointer;
-      z-index: 20;
-      visibility: hidden;
-      transition: 1s;
-      transform: translateY(100%);
-      opacity: 0;
-      font-size: 20px;
-
-      @include sm {
-        display: block;
-      }
-    }
-
-    .close-card-expend {
-      transform: translateY(0%);
-      visibility: visible;
-      opacity: 1;
     }
 
     .card-titles {
@@ -174,7 +150,8 @@
         transition: 1s;
         transition-delay: 1.4s;
         visibility: visible;
-        opacity: 0.3;
+        opacity: 1;
+        color: rgba(0, 0, 0, 0.3);
       }
 
       @include sm {

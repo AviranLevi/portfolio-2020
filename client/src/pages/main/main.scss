@@ -60,9 +60,10 @@
   }
 }
 
+//global
 .expend {
   height: 500px !important;
-  width: 600px !important;
+  width: 70% !important;
 
   @include lg {
     height: 450px !important;
@@ -71,11 +72,36 @@
 
   @include sm {
     height: 300px !important;
-    width: 70% !important;
+    width: 60% !important;
   }
 
   @include xs {
     height: 70% !important;
-    // width: 100% !important;
+    width: 70% !important;
   }
+}
+
+.close-card {
+  display: none;
+  position: absolute;
+  top: 1.5em;
+  right: 2em;
+  cursor: pointer;
+  z-index: 20;
+  visibility: hidden;
+  transition: 1s;
+  transform: translateY(100%);
+  opacity: 0;
+  font-size: 20px;
+
+  @include sm {
+    display: block;
+  }
+}
+
+.close-card-expend {
+  transform: translateY(0%);
+  visibility: visible;
+  opacity: 1;
+  color: rgba(0, 0, 0, 0.8);
 }

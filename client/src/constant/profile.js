@@ -11,7 +11,12 @@ export default {
       url: 'https://github.com/AviranLevi',
       style: socialIconsBackgroundColors.github,
     },
-    { icon: socialIcons.instagram, name: 'instagram', url: '', style: socialIconsBackgroundColors.instagram },
+    {
+      icon: socialIcons.instagram,
+      name: 'instagram',
+      url: 'https://www.instagram.com/a.be_music/',
+      style: socialIconsBackgroundColors.instagram,
+    },
     {
       icon: socialIcons.linkedIn,
       name: 'linkedIn',

@@ -57,7 +57,7 @@ const Projects = () => {
           )}
           {noTechToDisplay ? (
             <Title
-              className={`hover-for-tech-title ${openProjectsCard ? `hover-for-tech-title-expend` : null}`}
+              className={`hover-for-tech-title fade-in ${openProjectsCard ? `hover-for-tech-title-expend` : null}`}
               text='Hover for technologies...'
             />
           ) : null}
