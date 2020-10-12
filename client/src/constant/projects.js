@@ -37,18 +37,10 @@ export default [
     github: 'https://github.com/tomeraitz/rick-morty-game',
   },
   {
-    title: 'imageSearch',
-    tech: [
-      techIcons.html,
-      techIcons.css,
-      techIcons.typescript,
-      techIcons.angular,
-      techIcons.rxjs,
-      techIcons.express,
-      techIcons.node,
-    ],
+    title: 'weatherApp ⛅',
+    tech: [techIcons.html, techIcons.css, techIcons.sass, techIcons.javascript, techIcons.react, techIcons.redux],
     displayTech: false,
-    url: 'https://image--search.herokuapp.com/',
-    github: 'https://github.com/AviranLevi/imageSearch',
+    url: 'https://aviran-weather-app.herokuapp.com/',
+    github: 'https://github.com/AviranLevi/weather-app',
   },
 ];
