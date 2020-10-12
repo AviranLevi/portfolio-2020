@@ -6,6 +6,7 @@ const { service, user, pass, from, to } = mailerINFO;
 const transporter = nodemailer.createTransport({
   service,
   auth: { user, pass },
+  tls: { rejectUnauthorized: false },
 });
 
 export const sendEmail = async (req, res, next) => {
