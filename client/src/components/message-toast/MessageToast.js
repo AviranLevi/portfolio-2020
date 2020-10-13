@@ -14,8 +14,6 @@ const MessageToast = () => {
     maxLength: 300,
   });
 
-  const { openMessageToast } = state.features;
-
   const handleOnChange = (e) => {
     const value = e.target.value;
     const name = e.target.name;

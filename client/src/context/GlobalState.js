@@ -101,8 +101,6 @@ export const GlobalProvider = ({ children }) => {
 
   const isLoading = (bool) => setState({ type: actionType.IS_LOADING, payload: bool });
 
-  const isMessageError = (bool) => setState({ type: actionType.MESSAGE_ERROR, payload: bool });
-
   return (
     <GlobalContext.Provider
       value={{
