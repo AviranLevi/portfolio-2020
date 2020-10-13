@@ -14,6 +14,8 @@ const MessageToast = () => {
     maxLength: 300,
   });
 
+  const { openMessageToast } = state.features;
+
   const handleOnChange = (e) => {
     const value = e.target.value;
     const name = e.target.name;
@@ -23,7 +25,7 @@ const MessageToast = () => {
   const { name, email, text, maxLength } = user;
   const { nameError, emailError, textError } = state.errors;
   return (
-    <div className='fade-in message-toast center-items'>
+    <div className='message-toast center-items fade-in'>
       <div className='message-toast-wrapper center-items'>
         <div onClick={() => toggleMessageToast(false)} className='close-toast'>
           {featuresIcons.close}
