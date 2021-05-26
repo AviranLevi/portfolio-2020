@@ -60,6 +60,11 @@ export default (state, action) => {
         ...state,
         errors: { ...state.errors, textError: action.payload },
       }
+    case actionType.ERROR_TOAST:
+      return {
+        ...state,
+        errors: { ...state.errors, errorToast: action.payload },
+      }
 
     default:
       return state

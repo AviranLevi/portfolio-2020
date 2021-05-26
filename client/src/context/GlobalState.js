@@ -75,8 +75,8 @@ export const GlobalProvider = ({ children }) => {
     if (nameIsValid && emailIsValid && textIsValid) {
       isLoading(true)
       toggleMessageToast(false)
-      const response = await api.sendEmail({ name, email, text })
-      if (response.success) {
+      const { success } = await api.sendEmail({ name, email, text })
+      if (success) {
         isLoading(false)
         toggleThanksToast(true)
       } else {
@@ -95,7 +95,7 @@ export const GlobalProvider = ({ children }) => {
   const toggleErrorToast = (bool) => {
     setState({ type: actionType.ERROR_TOAST, payload: bool })
     if (bool) {
-      setTimeout(() => setState({ type: actionType.THANKS_TOAST, payload: false }), 3000)
+      setTimeout(() => setState({ type: actionType.ERROR_TOAST, payload: false }), 3000)
     }
   }
 

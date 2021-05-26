@@ -7,8 +7,9 @@ import Main from './pages/main'
 
 function App() {
   const { state } = useContext(GlobalContext)
-  const { openMessagePopup, thanksToast, isLoading } = state.features
-  const { errorToast } = state.errors
+  const { errors, features } = state
+  const { openMessagePopup, thanksToast, isLoading } = features
+  const { errorToast } = errors
 
   return (
     <div className="app center-items">
