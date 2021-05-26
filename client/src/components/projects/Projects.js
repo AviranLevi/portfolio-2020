@@ -1,70 +1,80 @@
-import React, { useContext } from 'react';
-import { GlobalContext } from '../../context/GlobalState';
-import ProfilePic from '../../assets/images/projects.jpg';
-import Title from '../../components/title';
-import { featuresIcons } from '../../constant/icons';
+import React, { useContext, useEffect, useState } from 'react'
+import { GlobalContext } from '../../context/GlobalState'
+import ProjectProfilePic from '../../assets/images/projects.jpg'
+import Title from '../../components/title'
+import { featuresIcons } from '../../constant/icons'
+import ProjectLink from './project-link'
+import imageSourceLoaded from '../../utils/imageSourceLoaded'
+import FadeLoader from 'react-spinners/FadeLoader'
 
 const Projects = () => {
-  const { state, toggleProjectsCard, displayProjectTech } = useContext(GlobalContext);
-  const { projects, features } = state;
-  const { openProjectsCard, noTechToDisplay } = features;
+  const [loadingImg, setLoadingImage] = useState(true)
 
-  return (
-    <div className={`projects center-items ${openProjectsCard ? 'expend' : ''}  `}>
+  const { state, toggleProjectsCard } = useContext(GlobalContext)
+  const { projects, features } = state
+  const { openProjectsCard, noTechToDisplay } = features
+
+  const backgroundImageSrc = imageSourceLoaded(ProjectProfilePic)
+
+  useEffect(() => {
+    if (backgroundImageSrc) {
+      setLoadingImage(false)
+    }
+  }, [backgroundImageSrc])
+
+  const openCardStyle = {
+    backgroundImage: `url(${backgroundImageSrc})`,
+  }
+
+  return loadingImg ? (
+    <FadeLoader size={100} color="#f7fff740" />
+  ) : (
+    <div className={`projects center-items fade-in ${openProjectsCard && 'expend'}`}>
       <div
         onClick={() => toggleProjectsCard(!openProjectsCard)}
-        className={`open-card-btn ${openProjectsCard ? 'open-card-btn-expend' : ''}`}
-        style={{ backgroundImage: `url(${ProfilePic})` }}
+        className={`open-card-btn ${openProjectsCard && 'open-card-btn-expend'}`}
+        style={openCardStyle}
       ></div>
 
-      <div className={`card center-items ${openProjectsCard ? 'expend-card' : ''} `}>
+      <div className={`card center-items ${openProjectsCard && 'expend-card'} `}>
         <div
           onClick={() => toggleProjectsCard(false)}
-          className={`close-card ${openProjectsCard ? 'close-card-expend' : ''}`}
+          className={`close-card ${openProjectsCard && 'close-card-expend'}`}
         >
           {featuresIcons.close}
         </div>
 
-        <div className={`card-titles center-items ${openProjectsCard ? 'expend-titles' : ''}`}>
-          <Title className='card-title' text='My Projects' />
+        <div className={`card-titles center-items ${openProjectsCard && 'expend-titles'}`}>
+          <Title className="card-title" text="My Projects" />
         </div>
 
-        <div className={`card-projects center-items ${openProjectsCard ? 'expend-card-projects' : ''}`}>
+        <div className={`card-projects center-items ${openProjectsCard && 'expend-card-projects'}`}>
           {projects.map((project, index) => (
-            <a
-              onMouseOver={() => displayProjectTech(index, true)}
-              onMouseLeave={() => displayProjectTech(index, false)}
-              key={project.title + '-' + index}
-              className='project center-items'
-              href={project.url}
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              <Title text={project.title} />
-            </a>
+            <ProjectLink projcet={project} index={index} />
           ))}
         </div>
 
-        <div className={`card-projects-tech center-items ${openProjectsCard ? 'card-projects-tech-expend' : ''}`}>
-          {projects.map((project) =>
-            project.displayTech
-              ? project.tech.map((tech, index) => (
-                  <div className={`tech-icon fade-in`}>
-                    <img src={tech} alt={tech + '-' + index} />
-                  </div>
-                ))
-              : null
+        <div className={`card-projects-tech center-items ${openProjectsCard && 'card-projects-tech-expend'}`}>
+          {projects.map(
+            ({ displayTech, tech }) =>
+              displayTech &&
+              tech.map((tech, index) => (
+                <div className={`tech-icon fade-in`}>
+                  <img src={tech} alt={tech + '-' + index} />
+                </div>
+              ))
           )}
-          {noTechToDisplay ? (
+
+          {noTechToDisplay && (
             <Title
-              className={`hover-for-tech-title fade-in ${openProjectsCard ? `hover-for-tech-title-expend` : null}`}
-              text='Hover for technologies...'
+              className={`hover-for-tech-title fade-in ${openProjectsCard && `hover-for-tech-title-expend`}`}
+              text="Hover for technologies..."
             />
-          ) : null}
+          )}
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Projects;
+export default Projects

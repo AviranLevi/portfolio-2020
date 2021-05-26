@@ -1,0 +1,33 @@
+.project {
+  height: 50%;
+  width: 100%;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 1s;
+
+  @include xs {
+    height: 40%;
+  }
+}
+
+.project:first-of-type {
+  background: #101213;
+  font-family: 'Poppins', sans-serif;
+  color: #f5cb5c;
+}
+
+.project:nth-of-type(2) {
+  background-image: url('../../../assets/images/rickmorty.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  h1 {
+    display: none;
+  }
+}
+
+.project:nth-of-type(3) {
+  font-family: 'Quicksand', sans-serif;
+  background: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
+  color: white;
+}

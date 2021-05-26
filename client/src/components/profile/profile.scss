@@ -24,7 +24,7 @@
   }
 
   .open-card-btn-expend {
-    transform: translateY(-135%);
+    transform: translateY(-130%);
     box-shadow: 0px 0px 42px -9px rgba(0, 0, 0, 0.75);
 
     @include sm {
@@ -94,25 +94,6 @@
 
       @include xs {
         width: 90%;
-      }
-
-      .link {
-        height: 50px;
-        width: 50px;
-        font-size: 25px;
-        border-radius: 50%;
-        box-shadow: 0px 0px 42px -9px rgba(0, 0, 0, 0.75);
-        transition: 0.5s;
-
-        &:hover {
-          width: 60px;
-          height: 60px;
-          font-size: 30px;
-        }
-
-        i {
-          color: $white;
-        }
       }
     }
 

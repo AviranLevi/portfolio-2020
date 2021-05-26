@@ -1,4 +1,4 @@
-import { socialIcons, socialIconsBackgroundColors } from '../constant/icons';
+import { socialIcons, socialIconsBackgroundColors } from '../constant/icons'
 
 export default {
   name: 'Aviran Levi',
@@ -20,8 +20,8 @@ export default {
     {
       icon: socialIcons.linkedIn,
       name: 'linkedIn',
-      url: 'https://www.linkedin.com/in/aviran-levi-looking-for-my-next-challenge-29660911b/',
+      url: 'https://www.linkedin.com/in/aviran-levi-29660911b/',
       style: socialIconsBackgroundColors.linkedIn,
     },
   ],
-};
+}
