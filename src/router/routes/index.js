@@ -3,8 +3,9 @@ import { mailerINFO } from '../../config'
 
 const { service, user, pass, from, to } = mailerINFO
 
-const transporter = nodemailer.createTransport('SMTP', {
+const transporter = nodemailer.createTransport({
   service,
+  host: 'smtp.gmail.com',
   auth: { user, pass },
   tls: { rejectUnauthorized: false },
 })
