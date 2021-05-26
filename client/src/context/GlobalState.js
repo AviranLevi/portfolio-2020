@@ -80,6 +80,7 @@ export const GlobalProvider = ({ children }) => {
         isLoading(false)
         toggleThanksToast(true)
       } else {
+        isLoading(false)
         toggleErrorToast(true)
       }
     }
