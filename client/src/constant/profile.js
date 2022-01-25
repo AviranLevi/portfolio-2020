@@ -3,7 +3,7 @@ import { socialIcons, socialIconsBackgroundColors } from '../constant/icons'
 export default {
   name: 'Aviran Levi',
   location: 'Tel Aviv-Yafo, Israel',
-  jobTitle: 'Full-stack Web Developer',
+  jobTitle: 'Full-Stack Web Developer',
   socialLinks: [
     {
       icon: socialIcons.github,
